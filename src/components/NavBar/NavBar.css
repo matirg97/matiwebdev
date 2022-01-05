@@ -1,0 +1,66 @@
+.navBarDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center ;
+}
+
+.imgNavBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.imgLogo{
+    width: 10rem;
+    height: 10rem;
+}
+
+.divProductos{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: auto;
+}
+
+.listaProductos{
+    display: flex;
+    height: 80%;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.itemProductos{
+    display: flex;
+    margin: auto;
+    padding: 10%;
+}
+
+.divBotones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.listaBotones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
