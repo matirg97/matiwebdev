@@ -1,8 +1,8 @@
 import React from 'react'
 import './NavBar.css';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import DeleteIcon from '@material-ui/icons/Delete';
 import imgLogo from "../assets/matiWebDevLogo.png"
+import CartWidget from '../CartWidget/CartWidget';
 
 const NavBar = () => {
     return (
@@ -19,7 +19,7 @@ const NavBar = () => {
                 </div>
                 <div className='divBotones'>
                     <ul className='listaBotones'>
-                        <li><ShoppingCartIcon /></li>
+                        <li className='itemCartWidget'><CartWidget /></li>
                         <li><DeleteIcon /></li>
                     </ul>
                 </div>

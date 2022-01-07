@@ -47,6 +47,12 @@
     padding: 10%;
 }
 
+.itemCartWidget{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(187, 187, 187);
+}
+
 .divBotones{
     display: flex;
     flex-direction: column;
