@@ -6,7 +6,7 @@ function App() {
   return (
     <>
     <NavBar />
-    <ItemListContainer/>
+    <ItemListContainer title={"Item list container"} />
     </>
   );
 }
