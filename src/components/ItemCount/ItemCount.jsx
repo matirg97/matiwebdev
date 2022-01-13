@@ -2,26 +2,38 @@ import React, { useState } from 'react'
 import { Button } from '@material-ui/core'
 import "./ItemCount.css"
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
     const [counter, setCounter] = useState(initial);
 
+    function restButton() {
+        if ((counter > 0) && (counter <= stock)) {
+            setCounter(counter - 1);
+        }
+    }
+
+    function sumButton() {
+        if ((counter >= 0) && (counter < stock)){
+            setCounter(counter + 1);
+        }
+    };
+
+    function addToCart(){
+        
+        if(counter > 0){
+            console.log(`Se agregaron ${counter} item/s al carrito`);
+        }else{
+            console.log("No se agregaron items al carrito")
+        }
+    }
+
     return (
         <div>
-            {counter > 0 && counter <= stock ?
-            <Button variant="outlined" className='countButton' onClick={() => setCounter(counter - 1) }>-</Button> 
-            :
-            <Button variant="outlined" className='countButton'>-</Button>}
+                <Button variant="outlined" className='countButton' onClick={restButton}>-</Button>
             <span className='counterSpan'>{counter}</span>
-            {counter >= 0 && counter < stock ?
-            <Button variant="outlined" className='countButton' onClick={() => setCounter(counter + 1)}>+</Button>
-            : 
-            <Button variant="outlined" className='countButton'>+</Button>}
+                <Button variant="outlined" className='countButton' onClick={sumButton}>+</Button>
             <div>
-                {counter > 0 ? 
-                <Button variant="outlined" className='addToCart' onClick={() => console.log(`Se agregaron ${counter} item/s al carrito`)}>Agregar al carrito</Button> 
-                : 
-                <Button variant="outlined" className='addToCart' onClick={() => console.log(`No se seleccionaron items`)}>Agregar al carrito</Button>}
+                    <Button variant="outlined" className='addToCart' onClick={addToCart}>Agregar al carrito</Button>
             </div>
         </div>
     )
