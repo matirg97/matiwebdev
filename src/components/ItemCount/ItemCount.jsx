@@ -13,27 +13,27 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     function sumButton() {
-        if ((counter >= 0) && (counter < stock)){
+        if ((counter >= 0) && (counter < stock)) {
             setCounter(counter + 1);
         }
     };
 
-    function addToCart(){
-        
-        if(counter > 0){
+    function addToCart() {
+
+        if (counter > 0) {
             console.log(`Se agregaron ${counter} item/s al carrito`);
-        }else{
+        } else {
             console.log("No se agregaron items al carrito")
         }
     }
 
     return (
         <div>
-                <Button variant="outlined" className='countButton' onClick={restButton}>-</Button>
+            <Button variant="outlined" className='countButton' onClick={restButton}>-</Button>
             <span className='counterSpan'>{counter}</span>
-                <Button variant="outlined" className='countButton' onClick={sumButton}>+</Button>
+            <Button variant="outlined" className='countButton' onClick={sumButton}>+</Button>
             <div>
-                    <Button variant="outlined" className='addToCart' onClick={addToCart}>Agregar al carrito</Button>
+                <Button variant="outlined" className='addToCart' onClick={addToCart}>Agregar al carrito</Button>
             </div>
         </div>
     )

@@ -1,0 +1,19 @@
+.imgItem{
+    width: 200px;
+    height: 250px;
+}
+
+.itemCard{
+    width: 300px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
