@@ -1,34 +1,34 @@
 [
     {
         "id" : "jean00",
-        "nombre" : "Jean Indigo",
-        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg",
+        "title" : "Jean Indigo",
+        "image" : "https://www.penguinargentina.com/uploads/picture/image/20708/0CNHB025025-1.jpg",
         "color" : "Azul",
-        "descripcion": "Jean indigo lavado 98% ALGODON 2% ELASTANO.",
+        "description": "Jean indigo lavado 98% ALGODON 2% ELASTANO.",
         "precio" : "8995"
     },
     {
         "id" : "chino00",
-        "nombre" : "Pantalon Chino",
-        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg",
+        "title" : "Pantalon Chino",
+        "image" : "https://www.penguinargentina.com/uploads/picture/image/23139/0ENHB602022-1.jpg",
         "color" : "Beige",
-        "descripcion" : "Pantalón de gabardina 98% ALGODON 2% ELASTANO.",
+        "description" : "Pantalón de gabardina 98% ALGODON 2% ELASTANO.",
         "precio" : "8995"
     },
     {
         "id" : "Remera00B",
-        "nombre" : "Remera básica",
-        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg",
+        "title" : "Remera básica",
+        "image" : "https://www.penguinargentina.com/uploads/picture/image/21050/0ENHT284080-2.jpg",
         "color" : "Negro",
-        "descripcion": "Remera negra básica 100% algodón PIMA.",
+        "description": "Remera negra básica 100% algodón PIMA.",
         "precio" : "3995"
     },
     {
         "id" : "Remera00R",
-        "nombre" : "Remera rayada",
-        "imagen" : "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg",
+        "title" : "Remera rayada",
+        "image" : "https://www.penguinargentina.com/uploads/picture/image/22755/0FNHT089413-4.jpg",
         "color" : "Blanca",
-        "descripcion" : "Remera rayada blanca y azul 100% algodón PIMA.",
+        "description" : "Remera rayada blanca y azul 100% algodón PIMA.",
         "precio" : "3995"
     }
 ]

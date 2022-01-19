@@ -1,19 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
+
 
 function App() {
-
-  const [clickCounter, setClickCounter] = useState(0);
-
-
-
 
   return (
     <>
     <NavBar />
-    <ItemListContainer title={"Item list container"} />
+    <ItemListContainer title={"Nuestros productos"} />
+    <ItemDetailContainer id={2}/>
     </>
   );
 }

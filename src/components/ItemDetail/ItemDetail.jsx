@@ -1,14 +1,15 @@
+
 import React from 'react'
-import "./Item.css"
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ItemCount from '../ItemCount/ItemCount';
+import "./ItemDetail.css";
 
 
 
-const Item = ({ data }) => {
+const ItemDetail = ({data}) => {
     return (
         <>
             <Card className="itemCard">
@@ -16,17 +17,22 @@ const Item = ({ data }) => {
                     <Typography variant="h5" component="h2">
                         {data.title}
                     </Typography>
+                    <img className='imgItem' src={data.image} alt="" />
                     <Typography color="textSecondary">
                         {data.category}
                     </Typography>
-                    <img className='imgItem' src={data.image} alt="" />
+                    <Typography variant="body2" component="p">
+                        {data.description}
+                        <br />
+                        Precio : ${data.price}
+                    </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button>Ver mas</Button>
+                <CardActions className="itemCountDiv">
+                    <ItemCount stock={10} initial={1} />
                 </CardActions>
             </Card>
         </>
     )
 }
 
-export default Item
+export default ItemDetail

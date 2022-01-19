@@ -1,11 +1,14 @@
-.navBarDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center ;
-}
 
+.navBarDiv{
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-template-rows: 100%;
+    grid-template-areas: "logo about shpcart";
+    background-color: rgb(175, 240, 248);
+}
+/*--------------------------------------------------------------------------*/
 .imgNavBar{
+    grid-area: logo;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,8 +19,10 @@
     width: 10rem;
     height: 10rem;
 }
+/*--------------------------------------------------------------------------*/
 
-.divProductos{
+.divAbout{
+    grid-area: about;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -27,10 +32,10 @@
     padding: auto;
 }
 
-.listaProductos{
+.listAbout{
     display: flex;
-    height: 80%;
-    width: 80%;
+    height: 100%;
+    width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -41,19 +46,17 @@
     list-style: none;
 }
 
-.itemProductos{
+.itemAbout{
     display: flex;
     margin: auto;
-    padding: 10%;
+    padding: 0;
 }
 
-.itemCartWidget{
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(187, 187, 187);
-}
+/*--------------------------------------------------------------------------*/
+
 
 .divBotones{
+    grid-area: shpcart;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,9 +67,27 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: center;
     padding: 0;
     margin: 0;
     list-style: none;
+}
+
+.itemCartWidget{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(112, 162, 255);
+    border-radius: 10px;
+    padding: 5px;
+    width: 40px;
+    height: 27px;
+}
+
+.deleteIcon{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    width: 40px;
+    height: 27px;
 }

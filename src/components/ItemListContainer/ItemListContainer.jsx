@@ -1,15 +1,13 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
 import ItemList from '../ItemList/ItemList'
-
+import { Typography } from '@material-ui/core'
 
 const ItemListContainer = ({ title }) => {
     return (
         <div>
-            <h2>
+            <Typography variant='h4' component="h2" className='catalogueTitle'>
                 {title}
-            </h2>
-            <ItemCount stock={10} initial={1} />
+            </Typography>
             <ItemList />
         </div>
     )
