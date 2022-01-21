@@ -2,33 +2,32 @@
 import React, { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { CircularProgress, Typography } from '@material-ui/core';
+import { useParams } from 'react-router-dom';
 
 
-const ItemDetailContainer = ({id}) => {
+const ItemDetailContainer = () => {
 
+    let {idItem} = useParams();
 
     const [productDetail, setProductDetail] = useState([]);
 
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
+        fetch(`https://fakestoreapi.com/products/${idItem}`)
             .then(res => res.json())
             .then(json => setProductDetail([json]));
-    }, []);
+    }, [idItem]);
 
 
     return (
         <>
-        <Typography variant="h5" component="h2">
-            Producto con el id : {id}
-        </Typography>
             {(productDetail.length > 0) ?
-                <div>
+                <div className='singleItemContainer'>
                     {productDetail.map(item => {
                         return <ItemDetail data={item} />
                     })}
                 </div>
                 :
-                <CircularProgress />
+                <CircularProgress className='circularProgress' />
             }
         </>
     )
