@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.530db7a2.css",
+    "main.js": "/static/js/main.1e98c42b.js",
+    "static/js/787.08c2eb14.chunk.js": "/static/js/787.08c2eb14.chunk.js",
+    "static/media/matiWebDevLogo.png": "/static/media/matiWebDevLogo.efd6c5191678d3c6d0cf.png",
+    "index.html": "/index.html",
+    "main.530db7a2.css.map": "/static/css/main.530db7a2.css.map",
+    "main.1e98c42b.js.map": "/static/js/main.1e98c42b.js.map",
+    "787.08c2eb14.chunk.js.map": "/static/js/787.08c2eb14.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.530db7a2.css",
+    "static/js/main.1e98c42b.js"
+  ]
+}
