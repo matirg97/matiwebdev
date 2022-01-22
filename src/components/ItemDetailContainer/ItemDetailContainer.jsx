@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
-    let {idItem} = useParams();
+    let { idItem } = useParams();
 
     const [productDetail, setProductDetail] = useState([]);
 
@@ -27,7 +27,9 @@ const ItemDetailContainer = () => {
                     })}
                 </div>
                 :
-                <CircularProgress className='circularProgress' />
+                <div className='circularProgressDiv'>
+                    <CircularProgress size={450} thickness={1} />
+                </div>
             }
         </>
     )

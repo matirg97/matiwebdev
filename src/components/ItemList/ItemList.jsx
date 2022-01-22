@@ -3,13 +3,13 @@ import Item from '../Item/Item'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import "./ItemList.css"
 
-const ItemList = ({ data, dataPlus }) => {
+const ItemList = ({ idParams }) => {
 
     const [productArray, setProductArray] = useState([]);
 
     useEffect(() => {
-        if (data != undefined && dataPlus != undefined) {
-            fetch(`https://fakestoreapi.com/products/${data}/${dataPlus}`)
+        if (idParams != undefined) {
+            fetch(`https://fakestoreapi.com/products/category/${idParams}`)
                 .then(res => res.json())
                 .then(json => setProductArray(json))
         } else {
@@ -17,7 +17,7 @@ const ItemList = ({ data, dataPlus }) => {
                 .then(res => res.json())
                 .then(json => setProductArray(json))
         }
-    }, [dataPlus]);
+    }, [idParams]);
 
     return (
         <>

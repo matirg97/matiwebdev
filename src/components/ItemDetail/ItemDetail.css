@@ -2,3 +2,35 @@
     width: 100%;
     height: 100%;
 }
+
+.cardContentDetail{
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+
+.itemCardDetail{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgItemDetail{
+    width: 100%;
+    height: 100%;
+}
+
+.divDescBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
