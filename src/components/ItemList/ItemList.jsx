@@ -24,7 +24,7 @@ const ItemList = ({ idParams }) => {
             {(productArray.length > 0) ?
                 <div className='itemCatalogue'>
                     {productArray.map(item => {
-                        return <Item data={item} />
+                        return <Item key={item.id} data={item} />
                     })}
                 </div>
                 :

@@ -1,6 +1,9 @@
 .itemCountDiv{
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cardContentDetail{
@@ -33,4 +36,9 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.singleItemContainer{
+    width: 100%;
+    height: 100vh;
 }

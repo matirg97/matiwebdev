@@ -21,9 +21,9 @@ const ItemDetailContainer = () => {
     return (
         <>
             {(productDetail.length > 0) ?
-                <div className='singleItemContainer'>
+                <div>
                     {productDetail.map(item => {
-                        return <ItemDetail data={item} />
+                        return <ItemDetail key={item.id} data={item} />
                     })}
                 </div>
                 :

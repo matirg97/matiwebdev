@@ -6,7 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
-
+import VerMasButton from '../VerMasButton/VerMasButton';
 
 const Item = ({ data }) => {
     return (
@@ -23,7 +23,7 @@ const Item = ({ data }) => {
                 </CardContent>
                 <CardActions>
                     <Link to={`/item/${data.id}`} >
-                        <Button>Ver mas</Button>
+                        <VerMasButton text={"Ver mas"}/>
                     </Link>
                 </CardActions>
             </Card>
