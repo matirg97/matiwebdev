@@ -23,6 +23,7 @@
     margin: 0;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .imgItemDetail{
@@ -41,4 +42,6 @@
 .singleItemContainer{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
 }
