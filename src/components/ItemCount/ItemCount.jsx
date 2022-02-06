@@ -18,15 +18,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     };
 
-    function addToCart() {
-
-        if (counter > 0) {
-            console.log(`Se agregaron ${counter} item/s al carrito`);
-        } else {
-            console.log("No se agregaron items al carrito")
-        }
-    }
-
     return (
         <div className='principalItemCountDiv'>
             <div className='countButtons'>
@@ -35,7 +26,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 <Button variant="outlined" className='countButton' onClick={sumButton}>+</Button>
             </div>
             <div className='addToCartButton'>
-                <Button variant="outlined" className='addToCart' onClick={addToCart}>Agregar al carrito</Button>
+                <Button variant="outlined" className='addToCart' onClick={() => onAdd(counter)}>Agregar al carrito</Button>
             </div>
         </div>
     )
