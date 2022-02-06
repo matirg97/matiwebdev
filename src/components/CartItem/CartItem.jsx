@@ -20,6 +20,9 @@ const CartItem = ({ data }) => {
                     <Typography variant='subtitle1' color="initial">
                         Precio : U$D {data.price}
                     </Typography>
+                    <Typography variant='subtitle1' color="initial">
+                        Cantidad : {data.quantity}
+                    </Typography>
                     <Button variant='contained' color='secondary' onClick={() => {removeItem(data.id)}}>Remove Item</Button>
                 </CardContent>
             </Card>
