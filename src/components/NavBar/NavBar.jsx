@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import './NavBar.css';
 import DeleteIcon from '@material-ui/icons/Delete';
 import imgLogo from "../assets/matiWebDevLogo.png"

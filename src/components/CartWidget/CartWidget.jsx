@@ -1,14 +1,16 @@
 import React from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Typography } from '@material-ui/core';
-
+import { cartContext } from '../CartProvider/CartProvider';
+import { useContext } from 'react';
 
 const CartWidget = () => {
+
     return (
         <>
             <ShoppingCartIcon />
             <span>
-                <Typography>0</Typography>
+                    0
             </span>
         </>
     )

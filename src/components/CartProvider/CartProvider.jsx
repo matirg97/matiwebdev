@@ -46,6 +46,7 @@ console.log(image);
     }
 
 
+
     return (
         <>
             <cartContext.Provider value={{ cart, setCart, addItem, removeItem, isInCart, removeCart }}>
