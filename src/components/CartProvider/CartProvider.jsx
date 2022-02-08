@@ -46,10 +46,12 @@ console.log(image);
     }
 
 
+    const sumItems = cart.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0);
+
 
     return (
         <>
-            <cartContext.Provider value={{ cart, setCart, addItem, removeItem, isInCart, removeCart }}>
+            <cartContext.Provider value={{ cart, setCart, addItem, removeItem, isInCart, removeCart, sumItems }}>
                 {children}
             </cartContext.Provider>
         </>

@@ -6,12 +6,15 @@ import { useContext } from 'react';
 
 const CartWidget = () => {
 
+    const { sumItems, cart } = useContext(cartContext);
+
     return (
         <>
             <ShoppingCartIcon />
             <span>
-                    0
+                {Number(sumItems)}
             </span>
+
         </>
     )
 }
