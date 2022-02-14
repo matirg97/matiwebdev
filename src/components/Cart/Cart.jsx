@@ -4,6 +4,8 @@ import "./Cart.css"
 import CartItem from '../CartItem/CartItem';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import firebase from 'firebase';
 
 const Cart = () => {
 

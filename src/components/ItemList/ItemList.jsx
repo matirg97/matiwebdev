@@ -2,20 +2,48 @@ import React, { useEffect, useState } from 'react'
 import Item from '../Item/Item'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import "./ItemList.css"
+import { getFirestore } from '../../firebase/firebase';
+
 
 const ItemList = ({ idParams }) => {
 
     const [productArray, setProductArray] = useState([]);
+    const db = getFirestore();
+    const itemCollection = db.collection('products')
+    const itemCollectionCategory = db.collection('products').where('category', '==', `${idParams}`)
+
 
     useEffect(() => {
+
         if (idParams != undefined) {
-            fetch(`https://fakestoreapi.com/products/category/${idParams}`)
-                .then(res => res.json())
-                .then(json => setProductArray(json))
+            itemCollectionCategory.get()
+                .then((querySnapshot) => {
+                    if (querySnapshot.size == 0) {
+                        console.log("There's no documents with that query (Category parameter)");
+                        return
+                    }
+                    console.log("There's documents (Category parameter)");
+                    setProductArray(querySnapshot.docs.map((doc) => doc.data()));
+                    console.log(productArray);
+                })
+                .catch((err) => {
+                    console.log(`The error in the firebase was : ${err} (Category parameter)`);
+                })
         } else {
-            fetch(`https://fakestoreapi.com/products/`)
-                .then(res => res.json())
-                .then(json => setProductArray(json))
+            itemCollection.get()
+                .then((querySnapshot) => {
+                    if (querySnapshot.size == 0) {
+                        console.log("There's no documents with that query");
+                        return
+                    }
+                    console.log("There's documents");
+                    setProductArray(querySnapshot.docs.map((doc) => doc.data()));
+                    console.log(productArray);
+                }
+                )
+                .catch((err) => {
+                    console.log(`The error in the firebase was : ${err}`);
+                })
         }
     }, [idParams]);
 
@@ -29,7 +57,7 @@ const ItemList = ({ idParams }) => {
                 </div>
                 :
                 <div className='circularProgressDiv'>
-                <CircularProgress size={450} thickness={1} />
+                    <CircularProgress size={450} thickness={1} />
                 </div>
             }
         </>

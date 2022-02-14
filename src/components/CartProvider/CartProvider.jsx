@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
     const addItem = (product, quantity, title, image, price) => {
 
         if (isInCart(product)) {
-console.log(image);
+            
             //This array method is searching for similarities
             const indexItem = cart.findIndex(ele => ele.id === product);
 

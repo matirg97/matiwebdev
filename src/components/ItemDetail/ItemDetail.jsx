@@ -8,8 +8,8 @@ import { cartContext } from "../CartProvider/CartProvider"
 
 const ItemDetail = ({ data }) => {
 
-//The line below brings up the context from CartProvider
-    const { addItem , cart} = useContext(cartContext);
+    //The line below brings up the context from CartProvider
+    const { addItem, cart } = useContext(cartContext);
 
     function onAdd(quantity) {
 
