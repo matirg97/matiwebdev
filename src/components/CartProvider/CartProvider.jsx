@@ -46,12 +46,16 @@ const CartProvider = ({ children }) => {
     }
 
 
+    const sumTotalPrice = () => {
+        return (cart.length > 0) ? cart.map(item => item.price * item.quantity).reduce((a,b) => a + b) : 0;
+    }
+
     const sumItems = cart.map(item => item.quantity).reduce((prev, curr) => prev + curr, 0);
 
 
     return (
         <>
-            <cartContext.Provider value={{ cart, setCart, addItem, removeItem, isInCart, removeCart, sumItems }}>
+            <cartContext.Provider value={{ cart, setCart, addItem, removeItem, isInCart, removeCart, sumItems, sumTotalPrice }}>
                 {children}
             </cartContext.Provider>
         </>
