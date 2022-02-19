@@ -3,7 +3,6 @@ import React, { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css";
 import { Box, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { cartContext } from "../CartProvider/CartProvider"
 
 const ItemDetail = ({ data }) => {

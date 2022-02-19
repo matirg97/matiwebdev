@@ -84,6 +84,12 @@
     height: 27px;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: inherit !important;
+}
+
 .deleteIcon{
     display: flex;
     flex-direction: row;
