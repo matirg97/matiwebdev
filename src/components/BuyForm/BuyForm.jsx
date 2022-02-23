@@ -11,14 +11,17 @@ const BuyForm = () => {
     const { sumItems, cart, sumTotalPrice } = useContext(cartContext);
     const [totalPrice, setTotalPrice] = useState(0);
     const [orderId, setOrderId] = useState("");
+    const [booleanFlag, setBooleanFlag] = useState(false);
+
 
     const nameRef = useRef();
+    const nameBool = false;
+
     const addressRef = useRef();
     const cityRef = useRef();
     const stateRef = useRef();
     const emailRef = useRef();
     const mobileRef = useRef();
-
 
     useEffect(() => {
         setTotalPrice(sumTotalPrice());
@@ -42,22 +45,23 @@ const BuyForm = () => {
             date: firebase.firestore.Timestamp.fromDate(new Date())
         };
 
-        console.log(nameRef.current.value);
 
-        orders.add(setOrder)
-            .then(({ id }) => {
-                console.log('orden ingresada:' + id);
-                setOrderId(id);
-            })
-            .catch((err) => {
-                console.log('el error fue el siguiente: ' + err);
-            });
 
-        return (
-            <div>
-                {orderId && (<h1>Felicitaciones el ID de su compra es: {orderId}</h1>)}
-            </div>
-        );
+        if ((nameRef.current.value != "") && (addressRef.current.value != "") && (cityRef.current.value != "") && (stateRef.current.value != "") && (emailRef.current.value != "") && (mobileRef.current.value != "")) {
+            orders.add(setOrder)
+                .then(({ id }) => {
+                    console.log('orden ingresada:' + id);
+                    setOrderId(id);
+                    console.log(orderId);
+                    setBooleanFlag(false);
+                })
+                .catch((err) => {
+                    console.log('el error fue el siguiente: ' + err);
+                });
+        } else {
+            return setBooleanFlag(true)
+        }
+
 
     };
 
@@ -67,11 +71,17 @@ const BuyForm = () => {
         <div className='buyFormContainer'>
             {cart.length > 0 ?
                 <>
+                    {orderId && (<h1>Felicitaciones el ID de su compra es: {orderId}</h1>)}
                     <h2>
                         Cantidad de productos: {sumItems}, por un valor total de: {totalPrice}
                     </h2>
                     <form>
                         <Input type="text" innerRef={nameRef} name='name' placeholder="Nombre y apellido" />
+                        {(nameBool == true) ?
+                            <p>Ponga su nombre</p>
+                            :
+                            null
+                        }
                         <br />
                         <Input type='text' name='direccion' innerRef={addressRef} placeholder="Direccion" />
                         <br />
@@ -86,6 +96,11 @@ const BuyForm = () => {
                     <Button variant="contained" color="primary" onClick={() => paymentButton()} >
                         Comprar
                     </Button>
+                    {(booleanFlag == true) ?
+                        <p>Complete el formulario por favor!</p>
+                        :
+                        null
+                    }
                 </>
                 :
                 <div>Error!</div>
