@@ -22,14 +22,13 @@
     flex-direction: column;
     margin: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .imgItemDetail{
-    max-height: 500px;
-    max-width: 500px;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .divDescBox{

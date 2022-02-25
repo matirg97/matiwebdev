@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from '@material-ui/core'
+import { Button, ButtonGroup } from '@material-ui/core'
 import "./ItemCount.css"
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -21,12 +21,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div className='principalItemCountDiv'>
             <div className='countButtons'>
-                <Button variant="outlined" className='countButton' onClick={restButton}>-</Button>
+                <Button variant="outlined" size="small" className='countButton' onClick={restButton}>-</Button>
                 <span className='counterSpan'>{counter}</span>
-                <Button variant="outlined" className='countButton' onClick={sumButton}>+</Button>
+                <Button variant="outlined" size='small' className='countButton' onClick={sumButton}>+</Button>
             </div>
             <div className='addToCartButton'>
-                <Button variant="outlined" className='addToCart' onClick={() => onAdd(counter)}>Agregar al carrito</Button>
+                <Button variant="outlined" color='primary' className='addToCart' onClick={() => onAdd(counter)}>Agregar al carrito</Button>
             </div>
         </div>
     )

@@ -1,21 +1,23 @@
-
 import React, { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css";
-import { Box, Card, CardActions, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, CardMedia, Typography, Button, ImageList } from '@material-ui/core';
 import { cartContext } from "../CartProvider/CartProvider"
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ data }) => {
 
     //The line below brings up the context from CartProvider
-    const { addItem, cart } = useContext(cartContext);
+    const { addItem } = useContext(cartContext);
+    const [booleanFlag, setBooleanFlag] = useState(false);
+
 
     function onAdd(quantity) {
 
         if (quantity > 0) {
             console.log(`Agregaste ${data.title}, cantidad:${quantity}`);
             addItem(data.id, quantity, data.title, data.image, data.price);
-            console.log(cart);
+            setBooleanFlag(true);
         } else {
             console.log("No se agregaron items al carrito")
         }
@@ -25,7 +27,9 @@ const ItemDetail = ({ data }) => {
         <div className='singleItemContainer'>
             <Card className="itemCardDetail">
                 <CardContent className='cardContentDetail' >
-                    <img className='imgItemDetail' src={data.image} alt={data.title} />
+                    <div className='imgDetailDiv'>
+                        <img className='imgItemDetail' src={data.image} alt={data.title} />
+                    </div>
                     <div className='divDescBox'>
                         <Typography variant="h5" component="h2">
                             {data.title}
@@ -43,7 +47,16 @@ const ItemDetail = ({ data }) => {
                             </Typography>
                         </Box>
                         <CardActions className="itemCountDiv">
-                            <ItemCount stock={10} initial={1} onAdd={onAdd} />
+                            {(booleanFlag == false) ?
+                                <ItemCount stock={10} initial={1} onAdd={onAdd} />
+                                :
+                                <Link to="/cart">
+                                    <Button variant="outlined">Ir al carrito</Button>
+                                </Link>
+                            }
+                            <Link to="/">
+                                <Button variant="outlined">Volver al menú</Button>
+                            </Link>
                         </CardActions>
                     </div>
                 </CardContent>

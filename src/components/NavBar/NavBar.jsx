@@ -12,6 +12,8 @@ import { cartContext } from '../CartProvider/CartProvider';
 
 const NavBar = () => {
 
+
+
     const { removeCart } = useContext(cartContext);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -46,18 +48,26 @@ const NavBar = () => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                <Link to={"/products/category/electronics"}>
-                                    <MenuItem onClick={handleClose}>Electronics</MenuItem>
-                                </Link>
-                                <Link to={"/products/category/jewelery"}>
-                                    <MenuItem onClick={handleClose}>Jewelery</MenuItem>
-                                </Link>
-                                <Link to={"/products/category/men's clothing"}>
-                                    <MenuItem onClick={handleClose}>Men's clothing</MenuItem>
-                                </Link>
-                                <Link to={"/products/category/women's clothing"}>
-                                    <MenuItem onClick={handleClose}>Women's clothing</MenuItem>
-                                </Link>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={"/products/category/electronics"}>
+                                        Electronics
+                                    </Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={"/products/category/jewelery"}>
+                                        Jewelery
+                                    </Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={"/products/category/men's clothing"}>
+                                        Men's clothing
+                                    </Link>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={"/products/category/women's clothing"}>
+                                        Women's clothing
+                                    </Link>
+                                </MenuItem>
                             </Menu>
                         </li>
                         <li className='itemAbout'>
@@ -74,7 +84,9 @@ const NavBar = () => {
                                 <CartWidget />
                             </li>
                         </Link>
-                        <li className='deleteIcon'><DeleteIcon onClick={removeCart} /></li>
+                        <li className='deleteIcon' onClick={removeCart}>
+                            <DeleteIcon />
+                        </li>
                     </ul>
                 </div>
             </div>
