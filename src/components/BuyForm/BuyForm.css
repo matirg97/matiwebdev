@@ -1,3 +1,18 @@
 .buyFormContainer{
     height: 100%;
 }
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorPage{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

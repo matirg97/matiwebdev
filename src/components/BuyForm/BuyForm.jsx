@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import { cartContext } from '../CartProvider/CartProvider';
 import firebase from 'firebase';
 import { getFirestore } from '../../firebase/firebase';
-import { Input, Button, Label } from "reactstrap";
+import { Input, Button, Label, FormFeedback, FormGroup, Form, Col } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BuyForm.css';
+import { Typography } from '@material-ui/core';
 
 const BuyForm = () => {
 
@@ -35,8 +36,6 @@ const BuyForm = () => {
     useEffect(() => {
         setTotalPrice(sumTotalPrice());
     })
-
-    let booleanValidate = true;
 
     const validate = (values, state) => {
 
@@ -104,113 +103,141 @@ const BuyForm = () => {
             {cart.length > 0 ?
                 <>
                     {orderId && (<h1>Felicitaciones el ID de su compra es: {orderId}</h1>)}
-                    <h2>
-                        Cantidad de productos: {sumItems}, por un valor total de: {totalPrice}
-                    </h2>
-                    <form>
-                        <Label for='name'>
-                            Escriba su nombre:
-                        </Label>
-                        <Input
-                            type="text"
-                            innerRef={nameRef}
-                            name='name'
-                            placeholder="Nombre y apellido"
-                        />
-                        {(nameBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
+                    <Typography variant='h4' align='center' >
+                        Cantidad de productos: {sumItems}
+                    </Typography>
+                    <Typography variant='h4' align='center' >
+                        Valor total de: ${totalPrice}
+                    </Typography>
+                    <Form className='formContainer'>
+                        <FormGroup>
+                            <Label for='name'>
+                                Escriba su nombre:
+                            </Label>
+                            <Input
+                                type="text"
+                                innerRef={nameRef}
+                                name='name'
+                                placeholder="Nombre y apellido"
+                            />
+                            {(nameBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='direccion'>
+                                Escriba su direccion:
+                            </Label>
+                            <Input
+                                type='text'
+                                name='direccion'
+                                innerRef={addressRef}
+                                placeholder="Direccion"
+                            />
+                            {(addressBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='ciudad'>
+                                Escriba la ciudad:
+                            </Label>
+                            <Input
+                                type='text'
+                                name='ciudad'
+                                innerRef={cityRef}
+                                placeholder="Ciudad"
+                            />
+                            {(cityBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='provincia'>
+                                Escriba su provincia:
+                            </Label>
+                            <Input
+                                type='text'
+                                name='provincia'
+                                innerRef={stateRef}
+                                placeholder="Provincia"
+                            />
+                            {(stateBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='e-mail'>
+                                Escriba su e-mail:
+                            </Label>
+                            <Input
+                                type='text'
+                                name='email'
+                                innerRef={emailRef}
+                                placeholder="E-Mail"
+                            />
+                            {(emailBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for='numero de celular'>
+                                Escriba su numero de celular:
+                            </Label>
+                            <Input
+                                type='text'
+                                name='mobile'
+                                innerRef={mobileRef}
+                                placeholder="Numero de celular"
+                            />
+                            {(mobileBool == true) ?
+                                <Typography variant='p' color='error' >
+                                    El casillero debe estar completo.
+                                </Typography>
+                                :
+                                null
+                            }
+                        </FormGroup>
+                        <Button variant="contained" color="primary" onClick={() => paymentButton()} >
+                            Comprar
+                        </Button>
+                        {(booleanFlag == true) ?
+                            <Typography variant='p' color='error' >
+                                Complete el formulario por favor!
+                            </Typography>
                             :
                             null
                         }
-                        <br />
-                        <Label for='direccion'>
-                            Escriba su direccion:
-                        </Label>
-                        <Input
-                            type='text'
-                            name='direccion'
-                            innerRef={addressRef}
-                            placeholder="Direccion"
-                        />
-                        {(addressBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
-                            :
-                            null
-                        }
-                        <br />
-                        <Label for='ciudad'>
-                            Escriba la ciudad:
-                        </Label>
-                        <Input
-                            type='text'
-                            name='ciudad'
-                            innerRef={cityRef}
-                            placeholder="Ciudad"
-                        />
-                        {(cityBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
-                            :
-                            null
-                        }
-                        <br />
-                        <Label for='provincia'>
-                            Escriba su provincia:
-                        </Label>
-                        <Input
-                            type='text'
-                            name='provincia'
-                            innerRef={stateRef}
-                            placeholder="Provincia"
-                        />
-                        {(stateBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
-                            :
-                            null
-                        }
-                        <br />
-                        <Label for='e-mail'>
-                            Escriba su e-mail:
-                        </Label>
-                        <Input
-                            type='text'
-                            name='email'
-                            innerRef={emailRef}
-                            placeholder="E-Mail"
-                        />
-                        {(emailBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
-                            :
-                            null
-                        }
-                        <br />
-                        <Label for='numero de celular'>
-                            Escriba su numero de celular:
-                        </Label>
-                        <Input
-                            type='text'
-                            name='mobile'
-                            innerRef={mobileRef}
-                            placeholder="Numero de celular"
-                        />
-                        {(mobileBool == true) ?
-                            <p>El casillero necesita estar completo.</p>
-                            :
-                            null
-                        }
-                    </form>
-                    <Button variant="contained" color="primary" onClick={() => paymentButton()} >
-                        Comprar
-                    </Button>
-                    {(booleanFlag == true) ?
-                        <p>Complete el formulario por favor!</p>
-                        :
-                        null
-                    }
+                    </Form>
                 </>
                 :
-                <div>Error!</div>
+                <div className='errorPage'>
+                    <Typography variant='h3' align='center'>
+                        Error 404! Page not found
+                    </Typography>
+                </div>
             }
-        </div>
+        </div >
     )
 }
 
