@@ -41,8 +41,11 @@ const ItemDetail = ({ data }) => {
                             <Typography variant="body2" component="p">
                                 {data.description}
                                 <br />
+                            </Typography>
+                            <br />
+                            <Typography align='center' variant="h6">
                                 <b>
-                                    Precio : U$D {data.price}
+                                    Precio : ${data.price}
                                 </b>
                             </Typography>
                         </Box>

@@ -1,3 +1,26 @@
+
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2%;
+}
+
+.productsContainer{
+    display: flex;
+    flex-direction: column;
+}
+
 .cartImage{
     width: 100px;
     height: 100px;

@@ -2,10 +2,8 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import { cartContext } from '../CartProvider/CartProvider';
 import "./Cart.css"
 import CartItem from '../CartItem/CartItem';
-import { Button } from '@material-ui/core';
+import { Button, Box, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase';
-import { getFirestore } from '../../firebase/firebase';
 
 
 const Cart = () => {
@@ -20,30 +18,42 @@ const Cart = () => {
     return (
         <>
             {(cart.length > 0) ?
-                <div>
-                    <h3>Cantidad de productos: {Number(sumItems)}</h3>
-                    <h3>Sus productos:</h3>
-                    <div className='cartCatalogue'>
-                        {cart.map(item => {
-                            return (
-                                <CartItem key={item.id} data={item} />
-                            )
-                        })}
-                    </div>
-                    <h3>Valor total de los productos: ${Number(totalPrice)} </h3>
-                    <Link to={"/payment"}>
-                        <Button variant="contained" color="primary">
-                            Finalizar Compra
-                        </Button>
-                    </Link>
+                <div className='cartContainer'>
+                    <Box className='productsContainer'>
+                        <Typography align='center' variant='h5'>
+                            Sus productos:
+                        </Typography>
+                        <div className='cartCatalogue'>
+                            {cart.map(item => {
+                                return (
+                                    <CartItem key={item.id} data={item} />
+                                )
+                            })}
+                        </div>
+                    </Box>
+                    <Box className='infoContainer'>
+                        <Typography align='center' variant='h5'>
+                            Cantidad de productos: {Number(sumItems)}
+                        </Typography>
+                        <Typography align='center' variant='h5'>
+                            Valor total de los productos: ${Number(totalPrice)}
+                        </Typography>
+                        <Link to={"/payment"}>
+                            <Button variant="contained" color="primary">
+                                Finalizar Compra
+                            </Button>
+                        </Link>
+                    </Box>
                 </div>
                 :
                 <div className='noItemDiv'>
-                    <h2>Todavía no items en el carrito!</h2>
+                    <Typography align='center' variant='h4'>
+                        Todavía no tenes items en el carrito!
+                    </Typography>
                     <Link to={"/"}>
-                    <Button variant="contained" color="primary">
-                        AGREGAR ITEMS
-                    </Button>
+                        <Button variant="contained" color="primary">
+                            AGREGAR ITEMS
+                        </Button>
                     </Link>
                 </div>
             }
