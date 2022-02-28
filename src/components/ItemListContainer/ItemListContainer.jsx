@@ -9,7 +9,7 @@ const ItemListContainer = ({ title }) => {
 
     return (
         <div>
-            <Typography variant='h4' component="h2" className='catalogueTitle'>
+            <Typography variant='h4' component="h2" className='catalogueTitle' align='center'>
                 {title}
             </Typography>
             <ItemList idParams={idCategory} />
