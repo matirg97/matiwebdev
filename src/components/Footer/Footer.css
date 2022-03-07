@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: flex-end;
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(201, 173, 167);
 }
 
 .madeBy, .linkedInIcon, .gitHubIcon{
