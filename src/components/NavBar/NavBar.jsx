@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './NavBar.css';
 import DeleteIcon from '@material-ui/icons/Delete';
 import imgLogo from "../assets/matiWebDevLogo.png"
@@ -7,16 +7,17 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 import { cartContext } from '../CartProvider/CartProvider';
 
 const NavBar = () => {
 
 
 
-    const { removeCart } = useContext(cartContext);
+    const { removeCart, cart } = useContext(cartContext);
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [open, setOpen] = useState(false);
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -26,6 +27,19 @@ const NavBar = () => {
         setAnchorEl(null);
     };
 
+
+    const handleAlertOpen = () => {
+        setOpen(true);
+    };
+
+    const handleAlertClose = () => {
+        setOpen(false);
+    };
+
+    const handleAlertEliminate = () => {
+        setOpen(false);
+        removeCart();
+    };
 
     return (
         <>
@@ -79,10 +93,45 @@ const NavBar = () => {
                                 <CartWidget />
                             </li>
                         </Link>
-                        <li className='deleteIcon' onClick={removeCart}>
-                            <IconButton aria-label="delete">
+                        <li className='deleteIcon'>
+                            <IconButton aria-label="delete" onClick={handleAlertOpen}>
                                 <DeleteIcon />
                             </IconButton>
+                            <Dialog
+                                open={open}
+                                onClose={handleAlertClose}
+                                aria-labelledby="alert-dialog-title"
+                                aria-describedby="alert-dialog-description"
+                            >
+                                <DialogTitle id="alert-dialog-title">{"Eliminar carrito"}</DialogTitle>
+                                <DialogContent>
+                                    {cart.length > 0 ?
+                                        <DialogContentText id="alert-dialog-description">
+                                            ¿Desea eliminar todo el contenido de su carrito?
+                                        </DialogContentText>
+                                        :
+                                        <DialogContentText id="alert-dialog-description">
+                                            ¡Todavia no tiene elementos en su carrito!
+                                        </DialogContentText>
+                                    }
+                                </DialogContent>
+                                <DialogActions>
+                                    {cart.length > 0 ?
+                                        <>
+                                            <Button onClick={handleAlertClose} color="secondary">
+                                                Cerrar
+                                            </Button>
+                                            <Button onClick={handleAlertEliminate} color="primary" autoFocus>
+                                                ELIMINAR
+                                            </Button>
+                                        </>
+                                        :
+                                        <Button onClick={handleAlertClose} color="secondary">
+                                            Cerrar
+                                        </Button>
+                                    }
+                                </DialogActions>
+                            </Dialog>
                         </li>
                     </ul>
                 </div>
