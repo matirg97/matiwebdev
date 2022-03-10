@@ -57,7 +57,7 @@ const ItemList = ({ idParams }) => {
                 </div>
                 :
                 <div className='circularProgressDiv'>
-                    <CircularProgress size={"50%"} thickness={1} />
+                    <CircularProgress size={"50%"} thickness={1} color={"secondary"} />
                 </div>
             }
         </>

@@ -1,5 +1,7 @@
 .buyFormContainer{
     height: 100%;
+    width: 100%;
+
 }
 
 .formContainer{
@@ -15,4 +17,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.paymentButton{
+    margin:1%;
+}
+
+.divTypoForm{
+    margin: 2%;
 }

@@ -103,12 +103,14 @@ const BuyForm = () => {
             {cart.length > 0 ?
                 <>
                     {orderId && (<h1>Felicitaciones el ID de su compra es: {orderId}</h1>)}
-                    <Typography variant='h4' align='center' >
-                        Cantidad de productos: {sumItems}
-                    </Typography>
-                    <Typography variant='h4' align='center' >
-                        Valor total de: ${totalPrice}
-                    </Typography>
+                    <div className='divTypoForm'>
+                        <Typography variant='h4' align='center' >
+                            Cantidad de productos: {sumItems}
+                        </Typography>
+                        <Typography variant='h4' align='center' >
+                            Valor total de: ${totalPrice}
+                        </Typography>
+                    </div>
                     <Form className='formContainer'>
                         <FormGroup>
                             <Label for='name'>
@@ -218,7 +220,7 @@ const BuyForm = () => {
                                 null
                             }
                         </FormGroup>
-                        <Button variant="contained" color="primary" onClick={() => paymentButton()} >
+                        <Button className='paymentButton' variant="contained" color="primary" onClick={() => paymentButton()} >
                             Comprar
                         </Button>
                         {(booleanFlag == true) ?
